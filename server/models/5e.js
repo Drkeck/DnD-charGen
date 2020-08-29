@@ -82,4 +82,42 @@ p1Schema.virtual('proficiencyBonus').get(function(){
 
 p1Schema.virtual('charStrMod').get(function(){
     return Math.floor((this.charStr - 10)/2)
+});
+
+p1Schema.virtual('charDexMod').get(function(){
+    return Math.floor((this.charDex - 10)/2)
+});
+
+p1Schema.virtual('charConMod').get(function(){
+    return Math.floor((this.charCon - 10)/2)
+});
+
+p1Schema.virtual('charIntMod').get(function(){
+    return Math.floor((this.charInt - 10)/2)
+});
+
+p1Schema.virtual('charWisMod').get(function(){
+    return Math.floor((this.charWis - 10)/2)
+});
+
+p1Schema.virtual('charChaMod').get(function(){
+    return Math.floor((this.charCha - 10)/2)
+});
+
+p1Schema.virtual('charHp').get(function(){
+    var conMod = Math.floor((this.charCon -10)/2)
+    var hd;
+    if(this.charClass === "Fighter" || this.charClass === "Paladin" || this.charClass === "Ranger"){
+        hd = 10;
+    } else if(this.charClass === "Sorcerer" || this.charClass === "Wizard") {
+        hd = 6
+    } else if(this.charClass === "Barbarian") {
+        hd = 12
+    } else {
+        hd = 8
+    }
+
+    const levelBonus = Math.floor((hd/2 * (this.charLevel - 1)) + ((this.charLevel - 1) * conMod))
+
+    return hd + conMod + levelBonus
 })

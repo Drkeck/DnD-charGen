@@ -117,7 +117,7 @@ p1Schema.virtual('charHp').get(function(){
         hd = 8
     }
 
-    const levelBonus = Math.floor((hd/2 * (this.charLevel - 1)) + ((this.charLevel - 1) * conMod))
-
-    return hd + conMod + levelBonus
+    const levelBonus = Math.floor((hd/2 * (this.charLevel - 1)) + ((this.charLevel - 1) * conMod));
+    const currentHp = hd + conMod + levelBonus;
+    return currentHp;
 })

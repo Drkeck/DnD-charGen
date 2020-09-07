@@ -653,4 +653,6 @@ const PathfinderCharacterSchema = new Schema({
             }
         },
     }
-})
+});
+
+module.exports = PathfinderCharacterSchema;

@@ -4,25 +4,25 @@ const { Schema } = mongoose;
 
 const PathfinderCharacterSchema = new Schema({
     characterInfo: {
-        charName: {
+        Name: {
             type: String,
             require: true
         },
-        charAlignment: {
+        Alignment: {
             type: String,
             require: true
         },
-        charRace: [
+        Race: [
             {
                 type: Schema.Types.ObjectId,
                 ref:'race'
             }
         ],
-        charClass: {
+        Class: {
             type: String,
             require: true
         },
-        charLevel: {
+        Level: {
             type: Number,
             require: true,
         }

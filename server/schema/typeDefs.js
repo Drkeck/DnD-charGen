@@ -40,7 +40,11 @@ type Character {
             cmd: Number
         }
         skills:{
-            acrobatics: {}
+            acrobatics: {
+                rank: Number
+                classSkill: Boolean
+                bonuses: Number
+            }
         }
     }
 }

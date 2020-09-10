@@ -655,4 +655,6 @@ const PathfinderCharacterSchema = new Schema({
     }
 });
 
-module.exports = PathfinderCharacterSchema;
+const Pathfinder = mongoose.model("Pathfinder", PathfinderCharacterSchema);
+
+module.exports = Pathfinder;

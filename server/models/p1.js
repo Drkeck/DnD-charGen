@@ -12,7 +12,7 @@ const PathfinderCharacterSchema = new Schema({
             type: String,
             require: true
         },
-        charRace:[
+        charRace: [
             {
                 type: Schema.Types.ObjectId,
                 ref:'race'
@@ -30,27 +30,29 @@ const PathfinderCharacterSchema = new Schema({
     characterStats: {
         abilities: {
             Strength: {
-                score:{
+                score: {
                     type: Number,
                     require: true,
                     default: 10
                 },
                 modifier: {
+                    type: Number,
                     get: (Strength) => {
-                        const modifier = Math.floor((Strength.score - 10)/2)
+                        const modifier = Math.floor((this.characterStats.abilities.Strength.score - 10)/2)
                         return modifier
                     }
                 }
             },
             Dexterity: {
-                score:{
+                score: {
                     type: Number,
                     require: true,
                     default: 10
                 },
                 modifier: {
+                    type: Number,
                     get: (Dexterity) => {
-                        const modifier = Math.floor((Dexterity.score - 10)/2)
+                        const modifier = Math.floor((this.characterStats.abilities.Dexterity.score - 10)/2)
                         return modifier
                     }
                 }
@@ -62,8 +64,9 @@ const PathfinderCharacterSchema = new Schema({
                     default: 10
                 },
                 modifier: {
+                    type: Number,
                     get: (Constitution) => {
-                        const modifier = Math.floor((Constitution.score - 10)/2)
+                        const modifier = Math.floor((this.characterStats.abilities.Constitution.score - 10)/2)
                         return modifier
                     }
                 }
@@ -75,8 +78,9 @@ const PathfinderCharacterSchema = new Schema({
                     default: 10
                 },
                 modifier: {
+                    type: Number,
                     get: (Intelligence) => {
-                        const modifier = Math.floor((Intelligence.score - 10)/2)
+                        const modifier = Math.floor((this.characterStats.abilities.Intelligence.score - 10)/2)
                         return modifier
                     }
                 }
@@ -88,8 +92,9 @@ const PathfinderCharacterSchema = new Schema({
                     default: 10
                 },
                 modifier: {
+                    type: Number,
                     get: (Wisdom) => {
-                        const modifier = Math.floor((Wisdom.score - 10)/2)
+                        const modifier = Math.floor((this.characterStats.abilities.Wisdom.score - 10)/2)
                         return modifier
                     }
                 }
@@ -102,7 +107,7 @@ const PathfinderCharacterSchema = new Schema({
                 },
                 modifier: {
                     get: (Charisma) => {
-                        const modifier = Math.floor((Charisma.score - 10)/2)
+                        const modifier = Math.floor((this.characterStats.abilities.Charisma.score - 10)/2)
                         return modifier
                     }
                 }
@@ -117,7 +122,7 @@ const PathfinderCharacterSchema = new Schema({
                 type: Number,
                 require: true
             },
-            inititive: {
+            initiative: {
                 type: Number,
                 require: true
             },
@@ -652,6 +657,90 @@ const PathfinderCharacterSchema = new Schema({
                 default: 0
             }
         },
+    },
+    CharacterExtras: {
+        feats: {
+            type:[
+                {
+                    name: {
+                        type: String,
+                        default: ""
+                    },
+                    description: {
+                        type: String,
+                        default: ""
+                    }
+                }
+            ],
+            default: []
+        },
+        gear: {
+            type:[
+                {
+                    name: {
+                        type: String,
+                        default: ""
+                    },
+                    description: {
+                        type: String,
+                        default: ""
+                    },
+                    price: {
+                        type: String,
+                        default: ""
+                    },
+                    weight: {
+                        type: Number,
+                        default: 0
+                    },
+                    amount: {
+                        type: Number,
+                        default: 1
+                    }
+                }
+            ]
+        },
+        money: {
+            platinum: {
+                type: Number,
+                default: 0
+            },
+            gold: {
+                type: Number,
+                default: 0
+            },
+            silver: {
+                type: Number,
+                default: 0
+            },
+            copper: {
+                type: Number,
+                default: 0
+            }
+        },
+
+    },
+    experience: {
+        type: Number,
+        default: 0
+    },
+    characterSpells: {
+        spellsKnown: [
+            {
+                name:{
+                    type: String,
+                    default:""
+                },
+                description: {
+                    type: String,
+                    default:""
+                },
+                level: {
+                    type: Number,
+                    default: 0,
+                }
+            }
+        ]
     }
 });
 

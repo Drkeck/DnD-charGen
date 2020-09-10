@@ -40,7 +40,7 @@ type Character {
             cmd: Number
         }
         skills:{
-            
+            acrobatics: {}
         }
     }
 }

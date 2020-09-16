@@ -50,7 +50,7 @@ type Character {
 }
 
 type Query {
-    Me: User
+    Me(_id: ID!): User
     Characters: [Character]
     character(_id: ID!): Character
 }

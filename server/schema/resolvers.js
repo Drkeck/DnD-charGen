@@ -1,4 +1,5 @@
 const { User, Pathfidner } = require('../models');
+const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
     Query: {
@@ -27,8 +28,16 @@ const resolvers = {
             // add auth here
             return character
         },
-        login: async (parent, args) => {
+        login: async (parent, { username, password }) => {
+            const user = await User.findOne({ username });
+
+            const correctPW = await user.isCorrectPassword(password)
             
+            if (!user || !correctPW) {
+                throw new AuthenticationError('Username or password incorrect');
+            }
+                //add token write here so users can stay signed in.
+            return user
         }
     }
 };

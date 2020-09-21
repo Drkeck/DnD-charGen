@@ -7,7 +7,7 @@ Type User {
     characters: [Character]
 }
 
-type Character {
+type Pathfinder {
     _id: ID
     characterInfo: {
         Name
@@ -51,8 +51,15 @@ type Character {
 
 type Query {
     Me(_id: ID!): User
-    Characters: [Character]
-    character(_id: ID!): Character
+    pathfinders: [Pathfinder]
+    pathfinder(_id: ID!): Pathfinder
+}
+
+type Mutation {
+    addUser(username: String!, password: String!): User
+    addPathfinder(): Pathfinder
+    login(username: String!, password: String!): User
+    upDateCharacter(_id: ID!): Pathfinder
 }
 `;
 

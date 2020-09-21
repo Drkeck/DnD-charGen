@@ -1,5 +1,6 @@
 const { User, Pathfidner } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
+const Pathfinder = require('../models/p1');
 
 const resolvers = {
     Query: {
@@ -38,6 +39,11 @@ const resolvers = {
             }
                 //add token write here so users can stay signed in.
             return user
+        },
+        UpDateCharacter: async (parent, args) => {
+            const character = await Pathfinder.findOneAndUpdate(args._id, args);
+            
+            return character;
         }
     }
 };

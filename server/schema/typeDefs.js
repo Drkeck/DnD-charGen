@@ -1,65 +1,45 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-Type User {
+type User {
     _id: ID
     username: String
-    characters: [Character]
+    characters: [Pathfinder]
 }
 
 type Pathfinder {
     _id: ID
-    characterInfo: {
-        Name
-        Alignment
-        Race
-        Class
-        Level
-    }
-    characterStats: {
-        abilities: {
-            Strength:{}
-            Dextarity:{}
-            Constitution:{}
-            Intelligence:{}
-            Wisdom:{}
-            Charisma:{}
-        }
-        dirStats: {
-            hitPoints: Number
-            speed: Number
-            initiative: Number
-            armorClass: Number
-            touch: Number
-            flatFooted: Number
-            fortitude: Number
-            reflex: Number
-            will: Number
-            baseAttackBonus: Number
-            cmb: Number
-            cmd: Number
-        }
-        skills:{
-            acrobatics: {
-                rank: Number
-                classSkill: Boolean
-                bonuses: Number
-            }
-        }
-    }
+    CharacterInfo: CharacterInfo
+    CharacterAttributes: CharacterAttributes
+}
+
+type CharacterInfo {
+    Name: String
+    Race: String
+    Level: Int
+    Alignment: String
+}
+
+type CharacterAttributes {
+    STR: Int
+    DEX: Int
+    CON: Int
+    INT: Int
+    WIS: Int
+    CHA: Int
 }
 
 type Query {
     Me(_id: ID!): User
-    pathfinders: [Pathfinder]
-    pathfinder(_id: ID!): Pathfinder
+    Pathfinders: [Pathfinder]
+    Pathfinder(_id: ID!): Pathfinder
 }
 
 type Mutation {
     addUser(username: String!, password: String!): User
-    addPathfinder(): Pathfinder
     login(username: String!, password: String!): User
-    upDateCharacter(_id: ID!): Pathfinder
+    addCharacter(Name: String!, STR: Int!): Pathfinder
+    removeCharacter(_id: ID!): Pathfinder
 }
 `;
 

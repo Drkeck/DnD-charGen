@@ -18,6 +18,7 @@ type CharacterInfo {
     Race: String
     Level: Int
     Alignment: String
+    Class: String
 }
 
 type CharacterAttributes {

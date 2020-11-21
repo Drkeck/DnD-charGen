@@ -17,6 +17,10 @@ const PathfinderCharacterSchema = new Schema({
             type:String,
             default: "N"
         },
+        Class: {
+            type:String,
+            default: "Fighter"
+        }
     },
     CharacterAttributes: {
         STR: {

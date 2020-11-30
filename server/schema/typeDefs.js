@@ -39,8 +39,25 @@ type Query {
 type Mutation {
     addUser(username: String!, password: String!): User
     login(username: String!, password: String!): User
-    addCharacter(Name: String!, STR: Int!): Pathfinder
+    addCharacter(CharacterInfo: Info!, CharacterAttributes: Attributes!): Pathfinder
     removeCharacter(_id: ID!): Pathfinder
+}
+
+input Info {
+    Name: String
+    Race: String
+    Level: Int
+    Alignment: String
+    Class: String
+}
+
+input Attributes {
+    STR: Int
+    DEX: Int
+    CON: Int
+    INT: Int
+    WIS: Int
+    CHA: Int
 }
 `;
 

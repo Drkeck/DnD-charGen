@@ -24,14 +24,7 @@ const resolvers = {
             return user
         },
         addCharacter: async (parent, args) => {
-            const character = await Pathfidner.create({
-                CharacterInfo: {
-                    Name: args.Name
-                },
-                CharacterAttributes: {
-                    STR: args.STR
-                }
-            });
+            const character = await Pathfidner.create(args);
             // add auth here
             return character
         },

@@ -47,7 +47,7 @@ const PathfinderCharacterSchema = new Schema({
             type:Number,
             default: 10
         },
-    }
+    },
 });
 
 const Pathfinder = mongoose.model("Pathfinder", PathfinderCharacterSchema);

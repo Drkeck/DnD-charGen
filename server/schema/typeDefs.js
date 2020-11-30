@@ -19,6 +19,12 @@ type CharacterInfo {
     Level: Int
     Alignment: String
     Class: String
+    Gender: String
+    Age: Int
+    Height: String
+    Weight: Int
+    HairColor: String
+    EyeColor: String
 }
 
 type CharacterAttributes {
@@ -49,6 +55,12 @@ input Info {
     Level: Int
     Alignment: String
     Class: String
+    Gender: String
+    Age: Int
+    Height: String
+    Weight: Int
+    HairColor: String
+    EyeColor: String
 }
 
 input Attributes {

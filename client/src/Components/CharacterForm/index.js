@@ -1,21 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Form() {
+    const [games] = useState([
+        {name: "Pathfinder"},
+        {name: "DnD 5e"},
+    ]);
+
+    const [currentGame, setCurrentGame] = useState(games[0])
+
     return (
         <div>
             <h1>Character From</h1>
-            <select>
-                <option selected>Table Top game</option>
-                <option value="Pathfinder">Pathfinder</option>
-            </select>
-            <h4>Race</h4>
-                <select>
-                    <option>Human</option>
-                </select>
-            <h4>Stats</h4>
-                <select>
-                    <option selected value="10">10</option>
-                </select>
+            <h3>{currentGame.name}</h3>
+            <select onChange={(event)=>{setCurrentGame(games[event.target.value])}}>
+                {games.map((game, key) => (
+                    <option key={game.name} value={key}>{game.name}</option>
+                ))}
+            </select> 
         </div>
     )
 }
+
+export default Form;

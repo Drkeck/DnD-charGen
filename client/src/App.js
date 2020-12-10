@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from './Components/CharacterForm/index'
 import './App.css';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <h4>Work in Progress</h4>
       <p>this will be a landing site</p>
+      <Form></Form>
     </div>
   );
 }

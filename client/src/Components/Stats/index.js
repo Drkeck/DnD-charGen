@@ -15,7 +15,7 @@ return (
         {attributes.map((attribute, num) => (
         <form key={num} onChange={handleChange}>
             <label htmlFor={attribute.name}>{attribute.name}</label>
-            <input name={attribute.name} type='number' Value={attribute} />
+            <input name={attribute.name} type='number' Value={attribute.score} />
         </form>
         ))}
     

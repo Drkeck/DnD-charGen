@@ -5,16 +5,17 @@ function Stats (props) {
         attributes,
         setCurrentStats
     } = props;
+    console.log(attributes[1].score)
     function handleChange(event) {
         console.log(event.target)
         // setCurrentStats
     }
 return (
     <div>
-        {attributes.map((attribute) => (
-        <form key={attribute.name} onChange={handleChange}>
-            <label for={attribute.name}>{attribute.name}</label>
-            <input id={attribute.name} type='number' value={attribute.score} />
+        {attributes.map((attribute, num) => (
+        <form key={num} onChange={handleChange}>
+            <label htmlFor={attribute.name}>{attribute.name}</label>
+            <input name={attribute.name} type='number' Value={attribute} />
         </form>
         ))}
     

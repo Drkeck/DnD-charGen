@@ -10,8 +10,12 @@ function Form() {
     const [currentGame, setCurrentGame] = useState(games[0]);
 
     const [attributes, setCurrentStats] = useState([
-        {name: 'STR', score: 0},
-        {name: 'DEX', score: 0}
+        {name:'strength', score: 10},
+        {name: 'dexterity', score: 10},
+        {name: 'constitution', score: 10},
+        {name: 'intelligence', score: 10},
+        {name: 'wisdom', score: 10},
+        {name: 'charisma', score: 10}
     ])
 
     return (

@@ -5,17 +5,23 @@ function Stats (props) {
         attributes,
         setCurrentStats
     } = props;
-    console.log(attributes[1].score)
-    function handleChange(event) {
+   async function handleChange(event) {
         console.log(event.target)
-        // setCurrentStats
+        const i = event.target.id
+        const v = event.target.value
+        console.log(i, v);
+        console.log(attributes[i].score)
+        setCurrentStats(attributes[i],{
+            name: event.target.name,
+            score: v
+        })
     }
 return (
     <div>
         {attributes.map((attribute, num) => (
-        <form key={num} onChange={handleChange}>
+        <form key={num}>
             <label htmlFor={attribute.name}>{attribute.name}</label>
-            <input name={attribute.name} type='number' Value={attribute.score} />
+            <input id={num} name={attribute.name} type='number' defaultValue={attribute.score} onChange={handleChange}/>
         </form>
         ))}
     

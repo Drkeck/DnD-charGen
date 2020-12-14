@@ -6,7 +6,6 @@ function Stats (props) {
         setCurrentStats
     } = props;
    async function handleChange(event) {
-        const n = event.target.name
         const i = event.target.id
         const v = event.target.value
         let newArry = [...attributes];

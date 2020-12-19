@@ -30,6 +30,12 @@ function Form() {
     ]);
     
     const [CurrentRace, setCurrentRace] = useState(races[0]);
+
+    const [Classes] = useState([
+        {name: "Barbarian", pbab: 1, psaves: "", dsaves: ""}
+    ]);
+
+    const [currentClass, setCurrentClass] = useState(Classes[0])
     return (
         <div>
             <h1>Character Form</h1>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Stats from '../Stats';
 import RacePicker from '../RacePicker';
+import ClassPicker from '../classSelector';
 
 function Form() {
     const [games] = useState([
@@ -32,10 +33,21 @@ function Form() {
     const [CurrentRace, setCurrentRace] = useState(races[0]);
 
     const [Classes] = useState([
-        {name: "Barbarian", pbab: 1, psaves: "", dsaves: ""}
+        {name: "Barbarian", pbab: 1, psaves: "placeholder info", dsaves: ""},
+        {name: "Bard", pbab: 0.75, psaves: "placeholder info", dsaves: ""},
+        {name: "Cleric", pbab: 0.75, psaves: "placeholder info", dsaves: ""},
+        {name: "Druid", pbab: 0.75, psaves: "placeholder info", dsaves: ""},
+        {name: "Fighter", pbab: 1, psaves: "placeholder info", dsaves: ""},
+        {name: "Monk", pbab: 0.75, psaves: "placeholder info", dsaves: ""},
+        {name: "Paladin", pbab: 1, psaves: "placeholder info", dsaves: ""},
+        {name: "Ranger", pbab: 1, psaves: "placeholder info", dsaves: ""},
+        {name: "Rogue", pbab: 0.75, psaves: "placeholder info", dsaves: ""},
+        {name: "Sorcerer", pbab: 0.5, psaves: "placeholder info", dsaves: ""},
+        {name: "Wizard", pbab: 0.5, psaves: "placeholder info", dsaves: ""},
     ]);
 
-    const [currentClass, setCurrentClass] = useState(Classes[0])
+    const [currentClass, setCurrentClass] = useState(Classes[0]);
+
     return (
         <div>
             <h1>Character Form</h1>
@@ -47,6 +59,7 @@ function Form() {
             </select>
             <RacePicker races={races} CurrentRace={CurrentRace} setCurrentRace={setCurrentRace} attributes={attributes} setCurrentStats={setCurrentStats}></RacePicker>
             <Stats attributes={attributes} setCurrentStats={setCurrentStats} CurrentRace={CurrentRace}></Stats>
+            <ClassPicker Classes={Classes} currentClass={currentClass} setCurrentClass={setCurrentClass}></ClassPicker>
         </div>
     )
 }

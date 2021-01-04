@@ -47,6 +47,7 @@ return (
         <form key={num}>
             <label htmlFor={attribute.name}>{attribute.name}: </label>
             <input id={num} name={attribute.name} type='number' value={attribute.score} onChange={handleChange}/>
+            <br />
         { !isMod && modCan && attribute.rBonus === 2 ? <button onClick={handleCheck} value={num - 10}>Remove +2</button>: <></>}
         { isMod && modCan ? <button onClick={handleCheck} value={num + 10}>add +2</button> : <p>Racial Bonus: {attribute.rBonus}</p>}
         <p>Total: {attribute.score + attribute.rBonus}</p>
